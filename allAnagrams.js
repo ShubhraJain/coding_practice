@@ -24,4 +24,7 @@ var allAnagrams = (string) => {
   return results;
 }
 
+console.log(allAnagrams(''));
+console.log(allAnagrams('a'));
 console.log(allAnagrams('abc'));
+console.log(allAnagrams('aaa'));
