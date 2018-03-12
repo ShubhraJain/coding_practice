@@ -8,7 +8,7 @@ var identicalString = (str1, str2) => {
   if (str1 === '' && str2 === '') {
     return true;
   }
-  if (str1.slice(0, 1) === str2.slice(0, 1)) {
+  if (str1[0] === str2[0]) {
     return identicalString(str1.slice(1), str2.slice(1));
   } else {
     return false;
