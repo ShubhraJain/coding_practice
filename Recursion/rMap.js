@@ -2,14 +2,9 @@
 // rMap([1,2,3], timesTwo); // [2,4,6]
 
 var rMap = function(array, callback) {
+  var res = [];
+  if (!array[0]) {
+    return res;
+  }
+  return res.concat(callback(array[0]), rMap(array.slice(1), callback));
 };
-
-var arr = [
-            [true, true],
-            [false, true],
-            [false, false],
-          ]
-
-console.log(!arr[1][1]);
-console.log(arr[1][1]);
-console.log(!!arr[1][1]);
