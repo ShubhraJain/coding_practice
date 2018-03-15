@@ -19,8 +19,7 @@ var fibonacci = (n) => {
   helper(2);
   return res;
 }
-
-console.log(fibonacci(2));
-console.log(fibonacci(5));
-console.log(fibonacci(7));
-console.log(fibonacci(10));
+// var nthFibo = function(n) {
+//   res = fibonacci(n);
+//   return res[n];
+// };
