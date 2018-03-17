@@ -24,7 +24,7 @@ Tree.prototype.contains = function(value) {
   }
   for (var i = 0; i < this.children.length && res === false; i++) {
     res = this.children[i].contains(value);
-  });
+  };
   return res;
 };
 
@@ -33,4 +33,32 @@ Tree.prototype.traverse = function(callback) {
   this.children.forEach( (child) => {
     child.traverse(callback);
   });
+}
+
+Tree.prototype.DFSelect = function(filter) {
+  var res = [];
+  if (filter(this.value)) {
+    res.push(this.value);
+  }
+  if (this.children) {
+    this.children.forEach(function(child) {
+      res = res.concat(child.DFSelect(filter));
+    });
+  }
+  return res;
+}
+
+Tree.prototype.BFS = (callback) => {
+  var queue = [];
+  queue.push(this);
+  while(queue.length) {
+    var n = queue.shift();
+    callback(n.value);
+    if (!n.children) {
+      continue;
+    }
+    n.children.forEach( (child) => {
+      queue.push(child);
+    });
+  }
 }
