@@ -45,3 +45,18 @@ LinkedList.prototype.makeNode = function(value) {
   return node;
 };
 
+LinkedList.prototype.reverse = function() {
+  // non-recursive way to reverse a linked list
+  var curr = this.head;
+  var prev = null;
+  var nextNode = null;
+  while (curr.next !== null) {
+    nextNode = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = nextNode;
+  }
+  this.head = prev;
+  return this;
+};
+
