@@ -22,6 +22,7 @@ CircularQueue.prototype.enqueue = function(value) {
 }
 
 CircularQueue.prototype.dequeue = function() {
+  var len = this.storage.length;
   if (this.front === -1) {
     console.log('Queue is empty. Operation cannot be performed');
     return;
@@ -31,10 +32,8 @@ CircularQueue.prototype.dequeue = function() {
   if (this.front === this.rear) {
     this.front = -1;
     this.rear = -1;
-  } else if (this.front === this.storage.length - 1) {
-    this.front = 0;
   } else {
-    this.front++;
+    this.front = (this.front + 1) % len;
   }
   return dequeuedElement;
 }
