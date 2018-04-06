@@ -77,13 +77,18 @@ BST.prototype.getPredecessor = function(root, node) {
 }
 
 BST.prototype.inOrder = function(root) {
-  if (root.left) {
-    this.inOrder(root.left);
+  var arr = [];
+  var traverse = function(node) {
+    if (node.left) {
+      traverse(node.left);
+    }
+    arr.push(node.value);
+    if (node.right) {
+      traverse(node.right);
+    }   
   }
-  console.log(root.value);
-  if (root.right) {
-    this.inOrder(root.right);
-  }
+  traverse(root);
+  return arr;
 }
 
 BST.prototype.getParent = function(root, node) {
@@ -144,11 +149,12 @@ var j = bst.insert(root, 10);
 var i = bst.insert(root, 12);
 var k = bst.insert(root, 2);
 var l = bst.insert(root, 4.5);
-bst.deleteNode(root, k);
-bst.deleteNode(root, a);
-bst.deleteNode(root, g);
-bst.deleteNode(root, root);
-console.log(l);
+console.log(bst.inOrder(root));
+// bst.deleteNode(root, k);
+// bst.deleteNode(root, a);
+// bst.deleteNode(root, g);
+// bst.deleteNode(root, root);
+// console.log(l);
 // console.log(bst.getPredecessor(root, j) === 9);
 // console.log(bst.getPredecessor(root, a) === 4);
 // console.log(bst.getPredecessor(root, b) === 3);
