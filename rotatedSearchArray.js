@@ -1,5 +1,5 @@
 // Search for an element in rotated sorted array.
-// Return true if present else return false
+// Return index if present else return -1
 
 var rotatedSearchArray = (nums, target) => {
   var front = 0;
